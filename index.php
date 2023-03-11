@@ -63,9 +63,12 @@ require_once './dbconn.php';
                                                 <td><?= $employee['phone'] ?></td>
                                                 <td><?= $employee['position'] ?></td>
                                                 <td>
-                                                    <a href="" class="btn btn-sm btn-info">View</a>
+                                                    <a href="./view.php?view_id=<?= $employee['id']; ?>" class="btn btn-sm btn-info">View</a>
                                                     <a href="./update.php?id=<?= $employee['id']; ?>" class="btn btn-sm btn-primary">Update</a>
-                                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                                    <form action="./code.php" method="POST" class="d-inline">
+                                                        <button type="submit" name="delete_record" value="<?= $employee['id'] ?>" class="btn btn-sm btn-danger">Delete</button>
+                                                    </form>
+                                                    
                                                 </td>
                                             </tr>
                                 <?php
