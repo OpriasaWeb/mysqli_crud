@@ -66,6 +66,29 @@ if(isset($_POST['save_employee'])){
 // ----------------------------------------------------------------------------------- //
 
 // DELETE RECORD
+if(isset($_POST['delete_record'])){
+
+    $employee_id = mysqli_real_escape_string($conn, $_POST['delete_record']);
+
+    // set a mysqli delete code to the specific id
+    $query_delete = "DELETE FROM employee WHERE id = '$employee_id' ";
+
+    // Run the query delete using mysqli_query, first connect to db and perform the delete query
+    $query_del = mysqli_query($conn, $query_delete);
+
+    // If deleted successfully perform this 
+    if($query_run){
+        $_SESSION['message'] = "Employee deleted successfully!";
+        header("Location: index.php");
+        exit(0);
+        
+        // otherwise, print the failed delete
+    } else{
+        $_SESSION['message'] = "Delete the employee failed.";
+        header("Location: index.php");
+        exit(0);
+    }
+}
 
 // DELETE RECORD
 
