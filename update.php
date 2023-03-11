@@ -52,7 +52,7 @@ require_once './dbconn.php';
                   // print_r($employee);
                   ?>
 
-                    <form action="./index.php" method="POST">
+                    <form action="./code.php" method="POST">
                       <input type="hidden" name="id" value="<?= $employee['id']; ?>">
 
                       <div class="mb-3">
